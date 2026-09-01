@@ -7,7 +7,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\SeedData\brand.json" />
+    <None Remove="Data\SeedData\products.json" />
+    <None Remove="Data\SeedData\types.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Data\SeedData\brand.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\SeedData\products.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\SeedData\types.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="11.0.0-preview.7.26381.103" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="11.0.0-preview.7.26381.103" />
   </ItemGroup>
 
   <ItemGroup>
