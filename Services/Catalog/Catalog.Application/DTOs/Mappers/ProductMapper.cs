@@ -67,21 +67,37 @@ namespace Catalog.Application.DTOs.Mappers
                 Description = command.Description
             };
         }
-        //public static ProductDto ToDto(this ProductResponse product)
-        //{
-        //    if (product == null) return null;
-        //    return new ProductDto
-        //    (
-        //        product.Id,
-        //        product.Name,
-        //        product.Summary,
-        //        product.Description,
-        //        product.ImageFile,
-        //        product.Price,
-        //        DateTimeOffset.UtcNow
-                
+        public static ProductDto ToDto(this ProductResponse product)
+        {
+            if (product == null) return null;
+            return new ProductDto
+            (
+                product.Id,
+                product.Name,
+                product.Summary,
+                product.Description,
+                product.ImageFile,
+                new BrandDto(product.Brand.Id, product.Brand.Name),
+                new TypeDto(product.Type.Id, product.Type.Name),
+                product.Price,
+                DateTimeOffset.UtcNow
 
-        //    );
-        //}
+
+            );
+        }
+        public static UpdateProductCommand ToCommand(this UpdateProductDto dto, string id)
+        {
+            return new UpdateProductCommand
+            {
+                Id = id,
+                Name = dto.Name,
+                Summary = dto.Summary,
+                Description = dto.Description,
+                ImageFile = dto.ImageFile,
+                Price = dto.Price,
+                BrandId = dto.BrandId,
+                TypeId = dto.TypeId
+            };
+        }
     }
 }
