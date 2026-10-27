@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Data\SeedData\brand.json" />
+    <None Remove="Data\SeedData\brands.json" />
     <None Remove="Data\SeedData\products.json" />
     <None Remove="Data\SeedData\types.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Data\SeedData\brand.json">
+    <Content Include="Data\SeedData\brands.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\SeedData\products.json">
