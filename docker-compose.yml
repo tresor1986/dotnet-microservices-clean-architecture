@@ -1,0 +1,8 @@
+services:
+  catalogdb:
+   image: mongo
+  catalog:
+    image: ${DOCKER_REGISTRY-}catalog
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.API/Dockerfile
