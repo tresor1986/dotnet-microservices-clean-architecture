@@ -1,4 +1,5 @@
-﻿using Basket.Application.Responses;
+﻿using Basket.Application.Commands;
+using Basket.Application.Responses;
 using Basket.Core.Entities;
 
 namespace Basket.Application.Mappers
@@ -38,5 +39,22 @@ namespace Basket.Application.Mappers
                     ProductName = item.ProductName,
                 }).ToList()
             };
+
+
+        public static ShoppingCart ToEntity(this CreateShoppingCartCommand command)
+        {
+            return new ShoppingCart
+            {
+                UserName = command.UserName,
+                Items = command.Items.Select(item => new ShoppingCartItem
+                {
+                    ProductId = item.ProductId,
+                    ProductName = item.ProductName,
+                    Price = item.Price,
+                    Quantity = item.Quantity,
+                    ImageFile = item.ImageFile
+                }).ToList()
+            };
+        }
     }
 }
